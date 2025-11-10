@@ -6,19 +6,19 @@
         "username": "divine.temple.india"
     },
     {
-        "scrape_posts_username": "_kumar_yash_"
+        "scrape_posts_username": "shiv_12_jyotirling"
     },
     {
         "scrape_followers_username": "shiv_12_jyotirling"
     },
     {
-        "max_followers_to_scrape": 25
+        "max_followers_to_scrape": 500
     },
     {
         "follow_private": false
     },
     {
-        "follower_to_following_ratio": "ratio > 2"
+        "follower_to_following_ratio": "ratio < 1.2"
     },
     {
         "unfollow_after_days": 7
