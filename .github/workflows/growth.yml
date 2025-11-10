@@ -2,6 +2,8 @@ name: 0. Instagram Growth Tracker
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '30 9,21 * * *' # Runs at 3 AM and 3 PM IST
 
 jobs:
   build:

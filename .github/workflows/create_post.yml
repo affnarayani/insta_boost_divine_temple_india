@@ -2,6 +2,8 @@ name: 8. Create Instagram Post
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '30 0 * * *' # Runs at 6 AM IST
 
 jobs:
   create-post:
