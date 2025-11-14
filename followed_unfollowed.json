@@ -135,5 +135,11 @@
         "aaishs_tak_unfollowed": false,
         "aaishs_tak_liked_commented": false,
         "timestamp": "2025-11-14T01:02:11.985432"
+    },
+    {
+        "aaishuu23_followed": true,
+        "aaishuu23_unfollowed": false,
+        "aaishuu23_liked_commented": false,
+        "timestamp": "2025-11-14T04:18:11.209100"
     }
 ]
