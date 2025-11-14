@@ -86,7 +86,8 @@
     {
         "_kumawat_nirmal_followed": true,
         "_kumawat_nirmal_unfollowed": false,
-        "_kumawat_nirmal_liked_commented": false,
+        "_kumawat_nirmal_liked_commented": true,
+        "_kumawat_nirmal_liked_commented_url": "NA",
         "timestamp": "2025-11-12T16:18:32.392240"
     },
     {
