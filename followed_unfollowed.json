@@ -100,7 +100,8 @@
     {
         "_rits_018__followed": true,
         "_rits_018__unfollowed": false,
-        "_rits_018__liked_commented": false,
+        "_rits_018__liked_commented": true,
+        "_rits_018__liked_commented_url": "NA",
         "timestamp": "2025-11-13T01:02:12.662275"
     },
     {
