@@ -198,7 +198,8 @@
     {
         "abhi_shrivastav_1513_followed": true,
         "abhi_shrivastav_1513_unfollowed": false,
-        "abhi_shrivastav_1513_liked_commented": false,
+        "abhi_shrivastav_1513_liked_commented": true,
+        "abhi_shrivastav_1513_liked_commented_url": "NA",
         "timestamp": "2025-11-15T12:23:47.030379"
     },
     {
