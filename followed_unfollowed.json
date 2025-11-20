@@ -349,5 +349,11 @@
         "ashish902076_unfollowed": false,
         "ashish902076_liked_commented": false,
         "timestamp": "2025-11-19T20:15:29.982334"
+    },
+    {
+        "ask.lso_followed": true,
+        "ask.lso_unfollowed": false,
+        "ask.lso_liked_commented": false,
+        "timestamp": "2025-11-20T01:01:07.785714"
     }
 ]
