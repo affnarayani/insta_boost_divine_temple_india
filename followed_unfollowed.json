@@ -219,7 +219,8 @@
     {
         "abhishekgoel6376_followed": true,
         "abhishekgoel6376_unfollowed": false,
-        "abhishekgoel6376_liked_commented": false,
+        "abhishekgoel6376_liked_commented": true,
+        "abhishekgoel6376_liked_commented_url": "NA",
         "timestamp": "2025-11-16T01:06:08.796573"
     },
     {
