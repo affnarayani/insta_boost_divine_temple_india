@@ -394,5 +394,11 @@
         "bajuriyashyam_unfollowed": false,
         "bajuriyashyam_liked_commented": false,
         "timestamp": "2025-11-21T04:17:56.664277"
+    },
+    {
+        "banaras_shiv_kashi_followed": true,
+        "banaras_shiv_kashi_unfollowed": false,
+        "banaras_shiv_kashi_liked_commented": false,
+        "timestamp": "2025-11-21T08:20:40.370254"
     }
 ]
