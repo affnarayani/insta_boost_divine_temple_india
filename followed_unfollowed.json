@@ -472,5 +472,11 @@
         "by__500k__ff_unfollowed": false,
         "by__500k__ff_liked_commented": false,
         "timestamp": "2025-11-23T04:29:10.013489"
+    },
+    {
+        "c.vanrajshinh_followed": true,
+        "c.vanrajshinh_unfollowed": false,
+        "c.vanrajshinh_liked_commented": false,
+        "timestamp": "2025-11-23T08:18:09.679715"
     }
 ]
