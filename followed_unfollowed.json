@@ -254,7 +254,8 @@
     {
         "ajaysolanki5278_followed": true,
         "ajaysolanki5278_unfollowed": false,
-        "ajaysolanki5278_liked_commented": false,
+        "ajaysolanki5278_liked_commented": true,
+        "ajaysolanki5278_liked_commented_url": "NA",
         "timestamp": "2025-11-16T20:14:47.519532"
     },
     {
