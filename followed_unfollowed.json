@@ -518,5 +518,11 @@
         "cp_6040_unfollowed": false,
         "cp_6040_liked_commented": false,
         "timestamp": "2025-11-24T08:21:23.493392"
+    },
+    {
+        "decentguy_suvo_followed": true,
+        "decentguy_suvo_unfollowed": false,
+        "decentguy_suvo_liked_commented": false,
+        "timestamp": "2025-11-24T12:28:54.227596"
     }
 ]
