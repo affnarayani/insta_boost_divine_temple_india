@@ -511,5 +511,11 @@
         "chutudhangaon_unfollowed": false,
         "chutudhangaon_liked_commented": false,
         "timestamp": "2025-11-24T04:30:14.680708"
+    },
+    {
+        "cp_6040_followed": true,
+        "cp_6040_unfollowed": false,
+        "cp_6040_liked_commented": false,
+        "timestamp": "2025-11-24T08:21:23.493392"
     }
 ]
