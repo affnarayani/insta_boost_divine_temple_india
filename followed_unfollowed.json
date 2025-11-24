@@ -268,7 +268,8 @@
     {
         "ajitraj6946_followed": true,
         "ajitraj6946_unfollowed": false,
-        "ajitraj6946_liked_commented": false,
+        "ajitraj6946_liked_commented": true,
+        "ajitraj6946_liked_commented_url": "NA",
         "timestamp": "2025-11-17T04:21:17.830623"
     },
     {
