@@ -282,7 +282,8 @@
     {
         "aman_ratta123_followed": true,
         "aman_ratta123_unfollowed": false,
-        "aman_ratta123_liked_commented": false,
+        "aman_ratta123_liked_commented": true,
+        "aman_ratta123_liked_commented_url": "NA",
         "timestamp": "2025-11-17T12:27:56.271213"
     },
     {
