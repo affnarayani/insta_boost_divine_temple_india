@@ -12,8 +12,11 @@ from login import login_to_instagram
 # Define XPaths
 FOLLOWING_BUTTON_XPATH = "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[2]/div[1]/section/main/div/div/header/section[1]/div/div/div/div/div[1]/button"
 DYNAMIC_POPUP_XPATH = "/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div"
-UNFOLLOW_BUTTON_XPATH = "/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[8]/div[1]"
+PUBLIC_UNFOLLOW_BUTTON_XPATH = "/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[8]/div[1]"
 USER_NOT_AVAILABLE_XPATH = "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div[1]/section/main/div/div/div[1]/div[2]/span"
+PRIVATE_ACCOUNT_TEXT_XPATH = "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[2]/div[1]/section/main/div/div/div[1]/div/div[1]/div[2]/div/div/span"
+REQUESTED_BUTTON_XPATH = "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[2]/div[1]/section/main/div/div/header/section[1]/div/div/div/div/div/button"
+PRIVATE_UNFOLLOW_BUTTON_XPATH = "/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div/button[1]"
 
 def unfollow_account():
     print("Starting unfollow process...", flush=True)
@@ -138,30 +141,88 @@ def unfollow_account():
             except NoSuchElementException:
                 pass # Profile is available, continue with unfollow
 
-            # Click 'Following' button
-            print("Clicking 'Following' button...", flush=True)
-            following_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, FOLLOWING_BUTTON_XPATH))
-            )
-            following_button.click()
-            time.sleep(15) # Delay after click
+            # Check if the account is private
+            try:
+                private_account_element = driver.find_element(By.XPATH, PRIVATE_ACCOUNT_TEXT_XPATH)
+                if "This account is private" in private_account_element.text:
+                    print(f"Account {username_prefix} is private.", flush=True)
+                    # Check for "Requested" button
+                    try:
+                        requested_button = WebDriverWait(driver, 10).until(
+                            EC.element_to_be_clickable((By.XPATH, REQUESTED_BUTTON_XPATH))
+                        )
+                        if "Requested" in requested_button.text:
+                            print(f"Button text is 'Requested'. Clicking to unfollow {username_prefix}...", flush=True)
+                            requested_button.click()
+                            time.sleep(15) # Delay after click for popup
 
-            # Click 'Unfollow' button on the dynamic pop-up
-            print("Clicking 'Unfollow' button on pop-up...", flush=True)
-            unfollow_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.XPATH, UNFOLLOW_BUTTON_XPATH))
-            )
-            unfollow_button.click()
-            time.sleep(15) # Delay after click
+                            # Click 'Unfollow' button on the dynamic pop-up for private accounts
+                            print("Clicking 'Unfollow' button on dynamic pop-up for private account...", flush=True)
+                            private_unfollow_button = WebDriverWait(driver, 10).until(
+                                EC.element_to_be_clickable((By.XPATH, PRIVATE_UNFOLLOW_BUTTON_XPATH))
+                            )
+                            private_unfollow_button.click()
+                            time.sleep(15) # Delay after click
+                            print(f"Successfully unfollowed private account {username_prefix}!", flush=True)
+                            # Update followed_unfollowed.json for private account
+                            followed_data[eligible_account_index][f"{username_prefix}_unfollowed"] = True
+                            followed_data[eligible_account_index]['timestamp'] = datetime.now().isoformat()
+                            with open('followed_unfollowed.json', 'w') as f:
+                                json.dump(followed_data, f, indent=4)
+                            print(f"Updated status for {username_prefix} in followed_unfollowed.json", flush=True)
+                        else:
+                            print(f"Account {username_prefix} is private, but the button text is not 'Requested'. Skipping unfollow.", flush=True)
+                    except (NoSuchElementException, TimeoutException):
+                        print(f"Account {username_prefix} is private, but 'Requested' button not found or not clickable. Skipping unfollow.", flush=True)
+                else:
+                    print(f"Account {username_prefix} is public.", flush=True)
+                    # Proceed with public unfollow flow
+                    print("Clicking 'Following' button...", flush=True)
+                    following_button = WebDriverWait(driver, 10).until(
+                        EC.element_to_be_clickable((By.XPATH, FOLLOWING_BUTTON_XPATH))
+                    )
+                    following_button.click()
+                    time.sleep(15) # Delay after click
 
-            print(f"Successfully unfollowed {username_prefix}!", flush=True)
+                    # Click 'Unfollow' button on the dynamic pop-up
+                    print("Clicking 'Unfollow' button on pop-up for public account...", flush=True)
+                    public_unfollow_button = WebDriverWait(driver, 10).until(
+                        EC.element_to_be_clickable((By.XPATH, PUBLIC_UNFOLLOW_BUTTON_XPATH))
+                    )
+                    public_unfollow_button.click()
+                    time.sleep(15) # Delay after click
+                    print(f"Successfully unfollowed public account {username_prefix}!", flush=True)
+                    # Update followed_unfollowed.json for public account
+                    followed_data[eligible_account_index][f"{username_prefix}_unfollowed"] = True
+                    followed_data[eligible_account_index]['timestamp'] = datetime.now().isoformat()
+                    with open('followed_unfollowed.json', 'w') as f:
+                        json.dump(followed_data, f, indent=4)
+                    print(f"Updated status for {username_prefix} in followed_unfollowed.json", flush=True)
+            except NoSuchElementException:
+                # If PRIVATE_ACCOUNT_TEXT_XPATH is not found, assume it's a public account
+                print(f"Account {username_prefix} is public (private account text not found).", flush=True)
+                # Proceed with public unfollow flow
+                print("Clicking 'Following' button...", flush=True)
+                following_button = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, FOLLOWING_BUTTON_XPATH))
+                )
+                following_button.click()
+                time.sleep(15) # Delay after click
 
-            # Update followed_unfollowed.json
-            followed_data[eligible_account_index][f"{username_prefix}_unfollowed"] = True
-            followed_data[eligible_account_index]['timestamp'] = datetime.now().isoformat()
-            with open('followed_unfollowed.json', 'w') as f:
-                json.dump(followed_data, f, indent=4)
-            print(f"Updated status for {username_prefix} in followed_unfollowed.json", flush=True)
+                # Click 'Unfollow' button on the dynamic pop-up
+                print("Clicking 'Unfollow' button on pop-up for public account...", flush=True)
+                public_unfollow_button = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.XPATH, PUBLIC_UNFOLLOW_BUTTON_XPATH))
+                )
+                public_unfollow_button.click()
+                time.sleep(15) # Delay after click
+                print(f"Successfully unfollowed public account {username_prefix}!", flush=True)
+                # Update followed_unfollowed.json for public account
+                followed_data[eligible_account_index][f"{username_prefix}_unfollowed"] = True
+                followed_data[eligible_account_index]['timestamp'] = datetime.now().isoformat()
+                with open('followed_unfollowed.json', 'w') as f:
+                    json.dump(followed_data, f, indent=4)
+                print(f"Updated status for {username_prefix} in followed_unfollowed.json", flush=True)
             
         except (NoSuchElementException, TimeoutException) as e:
             print(f"Could not unfollow {username_prefix}: {e}", flush=True)
