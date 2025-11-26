@@ -310,7 +310,8 @@
     {
         "amit__yadav908978_followed": true,
         "amit__yadav908978_unfollowed": false,
-        "amit__yadav908978_liked_commented": false,
+        "amit__yadav908978_liked_commented": true,
+        "amit__yadav908978_liked_commented_url": "NA",
         "timestamp": "2025-11-18T04:24:47.907060"
     },
     {
