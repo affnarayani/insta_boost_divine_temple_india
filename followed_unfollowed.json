@@ -141,10 +141,10 @@
     },
     {
         "aaishs_tak_followed": true,
-        "aaishs_tak_unfollowed": false,
+        "aaishs_tak_unfollowed": true,
         "aaishs_tak_liked_commented": true,
         "aaishs_tak_liked_commented_url": "NA",
-        "timestamp": "2025-11-14T01:02:11.985432"
+        "timestamp": "2025-11-27T00:56:53.254961"
     },
     {
         "aaishuu23_followed": true,
