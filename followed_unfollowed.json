@@ -317,7 +317,8 @@
     {
         "anikash_k_followed": true,
         "anikash_k_unfollowed": false,
-        "anikash_k_liked_commented": false,
+        "anikash_k_liked_commented": true,
+        "anikash_k_liked_commented_url": "NA",
         "timestamp": "2025-11-18T08:28:11.816227"
     },
     {
