@@ -352,7 +352,8 @@
     {
         "arunachalam__shivaya_followed": true,
         "arunachalam__shivaya_unfollowed": false,
-        "arunachalam__shivaya_liked_commented": false,
+        "arunachalam__shivaya_liked_commented": true,
+        "arunachalam__shivaya_liked_commented_url": "NA",
         "timestamp": "2025-11-19T04:18:51.793995"
     },
     {
