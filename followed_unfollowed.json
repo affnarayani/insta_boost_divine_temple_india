@@ -338,7 +338,8 @@
     {
         "arjun_prajapat4_followed": true,
         "arjun_prajapat4_unfollowed": false,
-        "arjun_prajapat4_liked_commented": false,
+        "arjun_prajapat4_liked_commented": true,
+        "arjun_prajapat4_liked_commented_url": "NA",
         "timestamp": "2025-11-18T20:24:22.395618"
     },
     {
