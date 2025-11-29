@@ -373,7 +373,8 @@
     {
         "ashish902076_followed": true,
         "ashish902076_unfollowed": false,
-        "ashish902076_liked_commented": false,
+        "ashish902076_liked_commented": true,
+        "ashish902076_liked_commented_url": "NA",
         "timestamp": "2025-11-19T20:15:29.982334"
     },
     {
