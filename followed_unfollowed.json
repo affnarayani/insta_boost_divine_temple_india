@@ -380,7 +380,8 @@
     {
         "ask.lso_followed": true,
         "ask.lso_unfollowed": false,
-        "ask.lso_liked_commented": false,
+        "ask.lso_liked_commented": true,
+        "ask.lso_liked_commented_url": "NA",
         "timestamp": "2025-11-20T01:01:07.785714"
     },
     {
