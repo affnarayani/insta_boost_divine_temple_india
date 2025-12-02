@@ -379,10 +379,10 @@
     },
     {
         "ask.lso_followed": true,
-        "ask.lso_unfollowed": false,
+        "ask.lso_unfollowed": true,
         "ask.lso_liked_commented": true,
         "ask.lso_liked_commented_url": "NA",
-        "timestamp": "2025-11-20T01:01:07.785714"
+        "timestamp": "2025-12-02T16:18:20.899231"
     },
     {
         "avinashjha4938_followed": true,
