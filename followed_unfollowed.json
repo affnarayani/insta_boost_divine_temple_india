@@ -422,7 +422,8 @@
     {
         "bajuriyashyam_followed": true,
         "bajuriyashyam_unfollowed": false,
-        "bajuriyashyam_liked_commented": false,
+        "bajuriyashyam_liked_commented": true,
+        "bajuriyashyam_liked_commented_url": "NA",
         "timestamp": "2025-11-21T04:17:56.664277"
     },
     {
