@@ -436,7 +436,8 @@
     {
         "banzara97_followed": true,
         "banzara97_unfollowed": false,
-        "banzara97_liked_commented": false,
+        "banzara97_liked_commented": true,
+        "banzara97_liked_commented_url": "NA",
         "timestamp": "2025-11-21T12:26:38.398565"
     },
     {
