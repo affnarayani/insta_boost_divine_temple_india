@@ -506,7 +506,8 @@
     {
         "by__500k__ff_followed": true,
         "by__500k__ff_unfollowed": true,
-        "by__500k__ff_liked_commented": false,
+        "by__500k__ff_liked_commented": true,
+        "by__500k__ff_liked_commented_url": "NA",
         "timestamp": "2025-12-05T16:16:43.600773"
     },
     {
