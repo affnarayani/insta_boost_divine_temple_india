@@ -555,7 +555,8 @@
     {
         "cp_6040_followed": true,
         "cp_6040_unfollowed": true,
-        "cp_6040_liked_commented": false,
+        "cp_6040_liked_commented": true,
+        "cp_6040_liked_commented_url": "NA",
         "timestamp": "2025-12-06T20:14:00.548199"
     },
     {
