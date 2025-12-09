@@ -569,7 +569,8 @@
     {
         "deeapkkumargmail.com8_followed": true,
         "deeapkkumargmail.com8_unfollowed": true,
-        "deeapkkumargmail.com8_liked_commented": false,
+        "deeapkkumargmail.com8_liked_commented": true,
+        "deeapkkumargmail.com8_liked_commented_url": "NA",
         "timestamp": "2025-12-07T04:28:09.181672"
     },
     {
