@@ -1,5 +1,6 @@
 import json
 import os
+import random
 import time
 from dotenv import load_dotenv
 from colorama import Fore, Style, init
@@ -24,17 +25,19 @@ LIKE_BUTTON_XPATH = "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div[
 
 # Previous comments top 6 xpaths
 COMMENT_XPATHS = [
-    "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]",
-    "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]",
-    "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]",
-    "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[4]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]",
-    "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[5]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]",
-    "/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/section[1]/main[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[2]/div[6]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/span[1]"
+    "/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/div[1]/ul/div[3]/div/div/div[1]/ul/div/li/div/div/div[2]/div[1]/span",
+    "/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/div[1]/ul/div[3]/div/div/div[2]/ul/div/li/div/div/div[2]/div[1]/span",
+    "/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/div[1]/ul/div[3]/div/div/div[3]/ul/div/li/div/div/div[2]/div[1]/span",
+    "/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/div[1]/ul/div[3]/div/div/div[4]/ul/div/li/div/div/div[2]/div[1]/span",
+    "/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/div[1]/ul/div[3]/div/div/div[5]/ul/div/li/div/div/div[2]/div[1]/span",
+    "/html/body/div[6]/div[1]/div/div[3]/div/div/div/div/div[2]/div/article/div/div[2]/div/div/div[2]/div[1]/ul/div[3]/div/div/div[6]/ul/div/li/div/div/div[2]/div[1]/span"
 ]
 
 COMMENT_TEXTAREA_CSS_SELECTOR = "textarea[placeholder='Add a comment…']"
 COMMENT_TEXTAREA_FALLBACK_XPATH = "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div[1]/section/main/div/div[1]/div/div[2]/div/div[4]/section/div/form"
 POST_BUTTON_XPATH = "/html/body/div[1]/div/div/div[2]/div/div/div[1]/div[1]/div[1]/section/main/div/div[1]/div/div[2]/div/div[4]/section/div/form/div/div[2]/div"
+
+GENERALIZED_COMMENTS = ["Awesome", "Nice", "Good", "Perfect", "Great", "Amazing", "Superb", "Fantastic", "Incredible", "Wonderful", "Excellent", "Brilliant", "Outstanding", "Marvelous", "Splendid"]
 
 def reorder_user_dict_keys(user_dict, username, post_url=None):
     liked_commented_key = f"{username}_liked_commented"
@@ -363,15 +366,62 @@ def main():
                                 break # Exit the while True loop if a commentable post was found or limit reached
 
                         if not found_commentable_post: # This block is executed if no commentable post was found after checking all available posts or reaching the limit
-                            print(f"{Fore.YELLOW}No commentable posts found for {username} after checking all available posts or reaching the limit. Skipping user.{Style.RESET_ALL}", flush=True)
-                            # Mark user as processed if no commentable posts were found
-                            updated_user_dict = reorder_user_dict_keys(user_dict, username, "NA")
-                            for i, item in enumerate(followed_data):
-                                if item is user_dict:
-                                    followed_data[i] = updated_user_dict
-                                    break
-                            with open('followed_unfollowed.json', 'w') as f:
-                                json.dump(followed_data, f, indent=4)
+                            if not attempted_posts_for_user:
+                                print(f"{Fore.YELLOW}No posts found at all for {username}. Skipping user.{Style.RESET_ALL}", flush=True)
+                                updated_user_dict = reorder_user_dict_keys(user_dict, username, "NA")
+                                for i, item in enumerate(followed_data):
+                                    if item is user_dict:
+                                        followed_data[i] = updated_user_dict
+                                        break
+                                with open('followed_unfollowed.json', 'w') as f:
+                                    json.dump(followed_data, f, indent=4)
+                            else:
+                                # Post a random generalized comment on a random post
+                                random_post = random.choice(list(attempted_posts_for_user))
+                                print(f"{Fore.BLUE}No commentable posts found, posting generalized comment on post: {random_post}{Style.RESET_ALL}", flush=True)
+                                browser.get(random_post)
+                                time.sleep(5)
+                                # Like the post
+                                try:
+                                    like_button = WebDriverWait(browser, 10).until(
+                                        EC.element_to_be_clickable((By.XPATH, LIKE_BUTTON_XPATH))
+                                    )
+                                    like_button.click()
+                                    print(f"{Fore.GREEN}Post liked successfully.{Style.RESET_ALL}", flush=True)
+                                except Exception as e:
+                                    print(f"{Fore.RED}Could not like the post: {e}{Style.RESET_ALL}", flush=True)
+                                time.sleep(5)
+                                # Post random comment
+                                random_comment = random.choice(GENERALIZED_COMMENTS)
+                                print(f"{Fore.YELLOW}Posting generalized comment: {random_comment}{Style.RESET_ALL}", flush=True)
+                                try:
+                                    comment_textarea = WebDriverWait(browser, 10).until(
+                                        EC.presence_of_element_located((By.CSS_SELECTOR, COMMENT_TEXTAREA_CSS_SELECTOR))
+                                    )
+                                    comment_textarea.click()
+                                    time.sleep(1)
+                                    comment_textarea = WebDriverWait(browser, 10).until(
+                                        EC.presence_of_element_located((By.CSS_SELECTOR, COMMENT_TEXTAREA_CSS_SELECTOR))
+                                    )
+                                    for char in random_comment:
+                                        comment_textarea.send_keys(char)
+                                        time.sleep(0.1)
+                                    time.sleep(2)
+                                    post_button = WebDriverWait(browser, 10).until(
+                                        EC.element_to_be_clickable((By.XPATH, POST_BUTTON_XPATH))
+                                    )
+                                    post_button.click()
+                                    print(f"{Fore.GREEN}Generalized comment posted successfully.{Style.RESET_ALL}", flush=True)
+                                except Exception as e:
+                                    print(f"{Fore.RED}Error posting generalized comment: {e}{Style.RESET_ALL}", flush=True)
+                                # Mark as processed
+                                updated_user_dict = reorder_user_dict_keys(user_dict, username, random_post)
+                                for i, item in enumerate(followed_data):
+                                    if item is user_dict:
+                                        followed_data[i] = updated_user_dict
+                                        break
+                                with open('followed_unfollowed.json', 'w') as f:
+                                    json.dump(followed_data, f, indent=4)
                             user_processed = True
                             break # Move to the next user
 
