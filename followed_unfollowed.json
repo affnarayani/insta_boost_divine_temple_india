@@ -604,7 +604,8 @@
     {
         "amitkumargupta8418_followed": true,
         "amitkumargupta8418_unfollowed": false,
-        "amitkumargupta8418_liked_commented": false,
+        "amitkumargupta8418_liked_commented": true,
+        "amitkumargupta8418_liked_commented_url": "NA",
         "timestamp": "2025-12-09T20:26:46.919133"
     },
     {
