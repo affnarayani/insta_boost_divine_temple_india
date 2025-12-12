@@ -639,7 +639,8 @@
     {
         "deepaksingh32000_followed": true,
         "deepaksingh32000_unfollowed": false,
-        "deepaksingh32000_liked_commented": false,
+        "deepaksingh32000_liked_commented": true,
+        "deepaksingh32000_liked_commented_url": "https://www.instagram.com/deepaksingh32000/p/C6-gxOrR8OU/",
         "timestamp": "2025-12-10T16:34:44.881291"
     },
     {
