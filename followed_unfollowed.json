@@ -674,7 +674,8 @@
     {
         "desiqueen5831_followed": true,
         "desiqueen5831_unfollowed": false,
-        "desiqueen5831_liked_commented": false,
+        "desiqueen5831_liked_commented": true,
+        "desiqueen5831_liked_commented_url": "NA",
         "timestamp": "2025-12-11T12:56:54.189441"
     },
     {
