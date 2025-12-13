@@ -660,7 +660,8 @@
     {
         "deeply7026_followed": true,
         "deeply7026_unfollowed": false,
-        "deeply7026_liked_commented": false,
+        "deeply7026_liked_commented": true,
+        "deeply7026_liked_commented_url": "NA",
         "timestamp": "2025-12-11T04:39:28.485485"
     },
     {
