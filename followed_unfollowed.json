@@ -688,7 +688,8 @@
     {
         "devilalita0602_followed": true,
         "devilalita0602_unfollowed": false,
-        "devilalita0602_liked_commented": false,
+        "devilalita0602_liked_commented": true,
+        "devilalita0602_liked_commented_url": "NA",
         "timestamp": "2025-12-11T20:30:13.848786"
     },
     {
