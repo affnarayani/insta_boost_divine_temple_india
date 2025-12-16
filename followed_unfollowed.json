@@ -841,5 +841,11 @@
         "gouravjhala01_unfollowed": false,
         "gouravjhala01_liked_commented": false,
         "timestamp": "2025-12-16T12:56:24.399156"
+    },
+    {
+        "goyakarp_followed": true,
+        "goyakarp_unfollowed": false,
+        "goyakarp_liked_commented": false,
+        "timestamp": "2025-12-16T16:37:20.530051"
     }
 ]
