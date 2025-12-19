@@ -3,7 +3,7 @@ name: 7. Like and Comment Instagram Posts
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 */8 * * *' # Runs every 8 hours
+    - cron: '0 */2 * * *' # Runs every 2 hours
 
 jobs:
   like_comment:
