@@ -786,7 +786,8 @@
     {
         "drajjoshi4_followed": true,
         "drajjoshi4_unfollowed": false,
-        "drajjoshi4_liked_commented": false,
+        "drajjoshi4_liked_commented": true,
+        "drajjoshi4_liked_commented_url": "NA",
         "timestamp": "2025-12-14T20:27:46.090397"
     },
     {
