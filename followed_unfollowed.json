@@ -828,7 +828,8 @@
     {
         "golu.modal724_followed": true,
         "golu.modal724_unfollowed": false,
-        "golu.modal724_liked_commented": false,
+        "golu.modal724_liked_commented": true,
+        "golu.modal724_liked_commented_url": "https://www.instagram.com/golu.modal724/p/DP4EG-kjUZo/",
         "timestamp": "2025-12-15T20:31:21.766819"
     },
     {
