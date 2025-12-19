@@ -842,7 +842,8 @@
     {
         "gopal.mer.737_followed": true,
         "gopal.mer.737_unfollowed": false,
-        "gopal.mer.737_liked_commented": false,
+        "gopal.mer.737_liked_commented": true,
+        "gopal.mer.737_liked_commented_url": "NA",
         "timestamp": "2025-12-16T04:40:46.342825"
     },
     {
