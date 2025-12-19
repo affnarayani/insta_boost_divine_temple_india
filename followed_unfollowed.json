@@ -1007,5 +1007,11 @@
         "jk_2_dd_unfollowed": false,
         "jk_2_dd_liked_commented": false,
         "timestamp": "2025-12-19T21:23:56.880162"
+    },
+    {
+        "kalicharan_panika_followed": true,
+        "kalicharan_panika_unfollowed": false,
+        "kalicharan_panika_liked_commented": false,
+        "timestamp": "2025-12-19T23:22:59.395320"
     }
 ]
