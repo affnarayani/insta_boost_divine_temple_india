@@ -807,7 +807,8 @@
     {
         "gangayawar_followed": true,
         "gangayawar_unfollowed": false,
-        "gangayawar_liked_commented": false,
+        "gangayawar_liked_commented": true,
+        "gangayawar_liked_commented_url": "NA",
         "timestamp": "2025-12-15T08:39:56.725994"
     },
     {
