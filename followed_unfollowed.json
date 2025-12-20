@@ -870,7 +870,8 @@
     {
         "gunashrivastava_followed": true,
         "gunashrivastava_unfollowed": false,
-        "gunashrivastava_liked_commented": false,
+        "gunashrivastava_liked_commented": true,
+        "gunashrivastava_liked_commented_url": "NA",
         "timestamp": "2025-12-16T20:31:44.159383"
     },
     {
