@@ -884,7 +884,8 @@
     {
         "gunjanks801_followed": true,
         "gunjanks801_unfollowed": false,
-        "gunjanks801_liked_commented": false,
+        "gunjanks801_liked_commented": true,
+        "gunjanks801_liked_commented_url": "https://www.instagram.com/gunjanks801/p/DO96JJ0kyTK/",
         "timestamp": "2025-12-17T04:38:27.007867"
     },
     {
