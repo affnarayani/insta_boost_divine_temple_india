@@ -849,7 +849,8 @@
     {
         "gopisai___followed": true,
         "gopisai___unfollowed": false,
-        "gopisai___liked_commented": false,
+        "gopisai___liked_commented": true,
+        "gopisai___liked_commented_url": "https://www.instagram.com/gopisai__/p/Bm8PnyeHtp7DxDroohYXRrBM4HW9_FO-anK4XI0/",
         "timestamp": "2025-12-16T08:38:26.290725"
     },
     {
