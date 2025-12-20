@@ -863,7 +863,8 @@
     {
         "goyakarp_followed": true,
         "goyakarp_unfollowed": false,
-        "goyakarp_liked_commented": false,
+        "goyakarp_liked_commented": true,
+        "goyakarp_liked_commented_url": "https://www.instagram.com/goyakarp/p/C3zIZRJIcyl/",
         "timestamp": "2025-12-16T16:37:20.530051"
     },
     {
