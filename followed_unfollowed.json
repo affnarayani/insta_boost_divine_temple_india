@@ -968,7 +968,8 @@
     {
         "iam_nandnikhandelwal_followed": true,
         "iam_nandnikhandelwal_unfollowed": false,
-        "iam_nandnikhandelwal_liked_commented": false,
+        "iam_nandnikhandelwal_liked_commented": true,
+        "iam_nandnikhandelwal_liked_commented_url": "NA",
         "timestamp": "2025-12-19T04:39:48.957623"
     },
     {
