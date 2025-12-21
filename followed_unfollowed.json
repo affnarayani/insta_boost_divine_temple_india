@@ -926,7 +926,8 @@
     {
         "harshkant23_followed": true,
         "harshkant23_unfollowed": false,
-        "harshkant23_liked_commented": false,
+        "harshkant23_liked_commented": true,
+        "harshkant23_liked_commented_url": "NA",
         "timestamp": "2025-12-18T04:39:39.252858"
     },
     {
